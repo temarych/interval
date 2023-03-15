@@ -55,6 +55,10 @@ export class DateInterval implements IDateInterval {
     return subintervals.map(subinterval => DateInterval.fromInterval(subinterval));
   }
 
+  public toString() {
+    return `(${this.dateStart};${this.dateEnd})`;
+  }
+
   public toInterval() {
     return new Interval({
       from: Number(this.dateStart),
