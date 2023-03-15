@@ -134,6 +134,10 @@ export class Interval implements IInterval {
     return stack;
   }
 
+  public static getGaps(intervals: Interval[]) {
+    return Interval.inverse(intervals).filter(interval => interval.isFinite);
+  }
+
   public static getSpan(intervals: Interval[]) {
     return new Interval({
       from: Math.min(...intervals.map((interval) => interval.from)),
